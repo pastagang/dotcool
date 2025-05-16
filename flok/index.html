@@ -155,8 +155,7 @@
   </header>
   <iframe
     style="display: none"
-    sandbox="allow-scripts allow-same-origin allow-forms"
-    src="https://flok.cc/s/pastagang5">
+    sandbox="allow-scripts allow-same-origin allow-forms">
   </iframe>
 </main>
 
@@ -182,6 +181,11 @@
 </article>
 
 <script type="module">
+  import { PASTAGANG_ROOM_NAME } from "https://www.pastagang.cc/pastagang.js";
+
+  const iframe = document.querySelector("iframe");
+  iframe.src = `https://flok.cc/s/${PASTAGANG_ROOM_NAME}`;
+
   const reloadButton = document.getElementById("reload-button");
   reloadButton.addEventListener("click", () => {
     // reload with the ?skip query to skip the welcome dialog
@@ -257,7 +261,6 @@
     }, FADE_TIME);
   }, MANTRA_UPDATE_INTERVAL);
 
-  const iframe = document.querySelector("iframe");
   const coolButton = document.getElementById("cool-button");
   const dialogHolder = document.querySelector(".dialog-holder");
 
